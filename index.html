@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>开云 · 信息查询与延伸阅读工具</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f9f6f0;
+      font-family: 'Georgia', 'Times New Roman', 'Noto Serif SC', serif;
+      color: #2c2b28;
+      line-height: 1.7;
+      padding: 2rem 1.5rem;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    h1, h2, h3 {
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.3rem;
+      border-left: 5px solid #b7a48b;
+      padding-left: 1.2rem;
+      color: #3a352e;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #7a7062;
+      margin-bottom: 2.2rem;
+      padding-left: 1.7rem;
+      font-style: italic;
+    }
+
+    .hero-text {
+      background: #fffcf7;
+      padding: 1.8rem 2rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+      margin-bottom: 2.5rem;
+      border: 1px solid #ede6da;
+    }
+
+    .hero-text p {
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      margin: 2.5rem 0 1rem 0;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #ddd6ca;
+    }
+
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 1.5rem 0 2rem 0;
+    }
+
+    .card-item {
+      flex: 1 1 220px;
+      background: #fffcf7;
+      padding: 1.5rem 1.4rem;
+      border-radius: 16px;
+      border: 1px solid #e8dfd2;
+      transition: box-shadow 0.2s;
+    }
+
+    .card-item:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .card-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.6rem;
+      color: #4f483e;
+    }
+
+    .card-item p {
+      font-size: 0.95rem;
+      color: #5b5348;
+    }
+
+    .highlight-box {
+      background: #f2ede4;
+      padding: 1.5rem 1.8rem;
+      border-radius: 18px;
+      margin: 2rem 0;
+      border-left: 6px solid #b7a48b;
+    }
+
+    .highlight-box h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+      color: #3f3a32;
+    }
+
+    .highlight-box p {
+      margin-bottom: 0.6rem;
+    }
+
+    .usage-note {
+      background: #fff5e8;
+      padding: 1.2rem 1.6rem;
+      border-radius: 14px;
+      border: 1px solid #e0d4c2;
+      margin: 2rem 0;
+    }
+
+    .usage-note p {
+      font-size: 0.95rem;
+      color: #4f473b;
+    }
+
+    .faq-item {
+      margin: 1rem 0 1.5rem 0;
+      padding: 0.8rem 0;
+      border-bottom: 1px dashed #d6cdbd;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: #3f3a32;
+    }
+
+    .faq-a {
+      margin-top: 0.3rem;
+      color: #5b5348;
+    }
+
+    .inline-link {
+      color: #7f6b55;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #cbbca9;
+      text-decoration-thickness: 1px;
+      transition: color 0.15s;
+    }
+
+    .inline-link:hover {
+      color: #4f3d2e;
+      text-decoration-color: #7f6b55;
+    }
+
+    .cta-sentence {
+      background: #f6f0e8;
+      padding: 1.2rem 1.8rem;
+      border-radius: 30px;
+      text-align: center;
+      margin: 2.5rem 0 1.5rem 0;
+      font-size: 1.05rem;
+      border: 1px solid #ded3c2;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #ddd6ca;
+      font-size: 0.85rem;
+      color: #8c8376;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1.2rem 1rem;
+      }
+      h1 {
+        font-size: 1.7rem;
+        padding-left: 0.8rem;
+      }
+      .subhead {
+        font-size: 0.9rem;
+        padding-left: 1rem;
+      }
+      .hero-text {
+        padding: 1.2rem 1.2rem;
+      }
+      .card-item {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>开云</h1>
+  <div class="subhead">日常查询 · 对照阅读 · 延伸探索</div>
+
+  <div class="hero-text">
+    <p>写作者、研究者、信息整理者，大概都有过这样的时刻：为了核实一个细节，为了对比两条表述，或者单纯想从一个词句出发，找到更完整的上下文。多数时候，你在不同页面之间来回切换，打开太多标签，反而模糊了最初的问题。</p>
+    <p>这种状态下，需要的是一个安静的、克制的、能帮你快速定位信息并展开对照的工具。<strong>开云</strong>的设计初衷，正是为了回应这类日常的、具体的信息需求——不追求过度的智能感，只希望每一次查询都清晰、可靠、不被干扰。</p>
+  </div>
+
+  <h2 class="section-title">几个值得留意的亮点</h2>
+  <div class="card-grid">
+    <div class="card-item">
+      <h3>简洁的对照视图</h3>
+      <p>支持将多个结果并列展示，方便逐行比对。对于需要反复确认细节的文本、数据或术语，这种布局能减少视觉跳跃。</p>
+    </div>
+    <div class="card-item">
+      <h3>延伸阅读线索</h3>
+      <p>不打断当前阅读，同时提供相关的片段或链接方向。适合从一条信息出发，自然地扩大理解范围。</p>
+    </div>
+    <div class="card-item">
+      <h3>低干扰的界面</h3>
+      <p>米白背景、大号衬线字体、适量的留白。页面本身不制造信息噪音，让注意力始终留在内容上。</p>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <h3>一个日常使用场景</h3>
+    <p>下午写材料时，需要核对某个政策条款的原文与一份解读文章之间的用词差异。你打开 <a href="https://www.cloudget-kaiyun.com.cn" class="inline-link">开云</a>，分别输入两个来源的关键段落。对照视图里，差异处被自然标识，延伸阅读建议里还包含了一篇相关的评论文章。十五分钟后，你合上笔记本，笔记已经整理完毕。</p>
+  </div>
+
+  <h2 class="section-title">使用建议</h2>
+  <div class="usage-note">
+    <p><strong>· 适合中等长度的对比</strong> —— 几百字到一两千字的材料在对照视图中效果最好。过长的全文建议先提取关键片段。</p>
+    <p><strong>· 用关键词定位，而非完整句子</strong> —— 输入核心术语、专有名词或独特表述，往往比长句能获得更精准的关联片段。</p>
+    <p><strong>· 把延伸阅读当作线索索引</strong> —— 提供的方向是起点，而不是结论。可以顺着线索自己去查证、判断。</p>
+  </div>
+
+  <h2 class="section-title">常见疑问摘要</h2>
+  <div class="faq-item">
+    <p class="faq-q">问：开云是否需要注册或登录？</p>
+    <p class="faq-a">目前可以直接使用主要功能，无需注册。少数需要保存记录或定制视图的功能，后续可能会提供可选的账户体系，但不会强制。</p>
+  </div>
+  <div class="faq-item">
+    <p class="faq-q">问：对照的资料来源是什么？</p>
+    <p class="faq-a">系统会基于你输入的内容，从公开可检索的信息源中匹配相关段落。不接入个人数据或付费数据库，也不对结果进行改写或总结——呈现的是原始文本的片段。</p>
+  </div>
+  <div class="faq-item">
+    <p class="faq-q">问：可以用于学术引用吗？</p>
+    <p class="faq-a">建议仅作为线索指引。对于需要精确引用的内容，请务必核对原始出处。开云不承担第三方信息准确性的责任。</p>
+  </div>
+
+  <div class="cta-sentence">
+    如果你正在寻找一个安静、准确的查询与对照工具，可以试试 <a href="https://www.cloudget-kaiyun.com.cn" class="inline-link">开云</a>。
+  </div>
+
+  <footer>
+    页面内容仅供信息参考，不构成任何建议或保证。
+  </footer>
+
+</body>
+</html>
